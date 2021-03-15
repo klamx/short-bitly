@@ -1,0 +1,37 @@
+<div *ngIf="error" class="alert alert-dismissible alert-danger text-center">
+  <strong>{{ textError }}</strong>
+</div>
+<div class="container mt-3">
+  <h1 class="display-5 text-center">Ingrese la URL a acortar</h1>
+  <div class="row mt-5">
+    <div class="col-8">
+      <input
+        type="text"
+        placeholder="Ingrese la URL"
+        class="form-control form-control-lg"
+        [(ngModel)]="nombreUrl"
+      />
+    </div>
+    <div class="col-4">
+      <button (click)="procesarUrl()" class="btn btn-primary btn-block btn-lg">
+        Acortar
+      </button>
+    </div>
+  </div>
+  <div *ngIf="urlProcesada" class="row mt-3">
+    <div class="col-8">
+      <input
+        type="text"
+        class="form-control form-control-lg"
+        placeholder="URL Acortada"
+        [(ngModel)]="urlShort"
+      />
+    </div>
+    <div class="col-4">
+      <button (click)="copy()" class="btn btn-primary btn-block btn-lg">
+        Copiar
+      </button>
+    </div>
+  </div>
+  <app-spinner *ngIf="loading"></app-spinner>
+</div>
